@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Online_shop.Models.ViewModels.CreateProductViewModel
+@{
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="col-xl">
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0"> لطفا فیلد های مدبوطه را پر کنید</h5>
+            <small class="text-muted float-end">ایجاد کالای جدید</small>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.ProductName">نام کالا</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" asp-for="@Model.ProductName" placeholder="نام محصول">
+
+
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.Price">قیمت</label>
+                    <input type="text" class="form-control" id="basic-default-company" asp-for="@Model.Price" placeholder="قیمت را وارد کنید">
+                </div>  <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.Qty">تعداد</label>
+                    <input type="text" class="form-control" asp-for="@Model.Qty" placeholder="تعداد را وارد کنید">
+                </div>
+
+                <button type="submit" class="btn btn-primary" asp-controller="Home" asp-action="CreateProduct">ایجاد</button>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts{
+}

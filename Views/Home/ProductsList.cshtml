@@ -1,0 +1,59 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model List<Online_shop.Models.Product?>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="d-flex flex-row">
+   
+    @if (ViewBag.currentUser == 10 )
+    {
+        <div class="col-2">
+            <a b-mr733n59wp="" class="btn btn-outline-primary " asp-controller="Home" asp-action="CreateProduct">افزودن کالای جدید</a>
+        </div>
+    }
+
+
+
+</div>
+<div>
+    <div class="table-responsive bg-warning ">
+    <table class="table table-hover text-danger ">
+        <thead>
+        <tr>
+            <th class="text-center ">کد کالا</th>
+            <th class="text-center">نام کالا</th>
+            <th class="text-center">قیمت</th>
+            <th class="text-center">تعداد</th>
+           
+            @if (ViewBag.currentUser != null)
+            {
+            <th class ="text-center">عملبات ها</th>
+            }
+        </tr>
+        </thead>
+            <tbody class="table-border-bottom-0 text-danger">
+        @foreach (var item in Model!)
+        {
+            <tr>
+                <td class="text-center text-white"> <strong>@item!.Id</strong></td>
+                <td class="text-center"> <strong>@item.ProductName</strong></td>
+                <td class="text-center text-white "><strong>@item.Price</strong></td>
+                <td class="text-center"><strong>@item.Qty</strong></td>
+                
+            
+                @if (ViewBag.currentUser != null)
+                {
+                    <td class="text-center row">
+                    <a class="btn btn-xs btn-success col-10" asp-controller="Home" asp-action="AddToBasket" asp-route-Id="@item.Id"><i class="bx bx-shopping-bag me-1"></i> افزودن به سبد خرید</a>
+                    </td>
+                }
+            </tr>
+        }
+        </tbody>
+    </table>
+
+</div>
+</div>

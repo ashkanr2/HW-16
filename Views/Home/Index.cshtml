@@ -1,0 +1,34 @@
+﻿<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class=" bg-warning text-white text-center ">
+<div>
+    <h1 class="display-4">خوش آمدید!</h1>
+</div>
+@if (ViewBag.Message != null)
+{
+    @if (ViewBag.Message == "شما با موفقیت وارد شدید!")
+    {
+            <div class=" bg-warning text-center text-success">
+            کاربر با شماره آیدی 
+            @ViewBag.id
+                
+            </div> 
+        <div class=" bg-warning text-center text-success ">
+            @ViewBag.Message
+        </div> 
+    }
+    @if (ViewBag.Message == "ورود ناموفق دوباره تلاش کنید")
+    {
+        <div class=" text-center text-danger bg-warning ">
+            @ViewBag.Message
+        </div> 
+    }
+}
+</div>

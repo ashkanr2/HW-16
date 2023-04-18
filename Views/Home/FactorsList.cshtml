@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model List<Online_shop.Models.Factor>
+@{
+    <br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+    var count = 1;
+    <p class="text-white text-center">
+    لیست فاکتور های کاربر شماره 
+     @ViewBag.message
+    </p>
+    <div class="table-responsive text-nowrap bg-warning">
+        <table class="table table-hover text-danger">
+            <thead>
+            <tr>
+                <th class="text-center">شماره فاکتور</th>
+                <th class="text-center">تاریخ ثبت</th>
+                <th class="text-center">قیمت کل</th>
+                <th class="text-center">مشاهده کالا ها</th>
+                <th class="text-center">حذف فاکتور</th>
+            </tr>
+            </thead>
+            <tbody class="table-border-bottom-0 text-white">
+            @if (Model.Count > 0)
+            {
+                @foreach (var item in Model)
+                {
+
+
+                    <tr>
+                        <td class="text-center"><strong>@(count++)</strong></td>
+                        <td class="text-center text-danger"><strong>@item.CreateDate</strong></td>
+                        <td class="text-center text-success"><strong>@item.TotalPrice</strong></td>
+                        <td class="text-center bg-primary"><a class="badge bg-label-success me-1" asp-controller="Home" asp-action="Factor"asp-route-id="@item.FactorId">مشاهده</a></td>
+                        <td class="text-center bg-danger "><a class="badge bg-label-success me-1" asp-controller="Home" asp-action="FactorDetail" asp-route-id="@item.FactorId">حذف</a></td>
+                        </tr>
+
+
+
+                }
+            }
+        
+
+            </tbody>
+        </table>
+
+    </div>
+}

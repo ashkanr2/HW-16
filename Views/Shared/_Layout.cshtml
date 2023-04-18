@@ -1,0 +1,118 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - _10</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/_10.styles.css" asp-append-version="true" />
+</head>
+<header>
+    <body class="bg-secondary">
+        <header>
+            <nav class=" navbar navbar-expand-lg fixed-top navbar-light  border border-3 text-light bg-dark ">
+                <div class="container-fluid justify-content-center justify-content-md-between">
+
+                    <ul class="navbar-nav flex-row">
+
+                        <div class="d-flex">
+                            <ul class="d-flex">
+
+                                <li class="nav-item d-flex">
+                                    @if (ViewBag.id ==0 || ViewBag.id ==null  )
+                                    {
+                                         <div>
+                                        <button type="button" class=" nav-link text-danger bg-warning border border-dark rounded btn btn-primary dropdown-toggle " data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            ورود
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-end w-px-300" style="">
+                                            <form class="p-4" method="post">
+                                                <div class="mb-3">
+                                                    <p class="text-danger">  
+                                                        فعلا فقط کاستومر ایدی را در ایمیل وارد کنید 
+                                                    </p>
+                                                    <label class="form-label">آدرس ایمیل</label>
+                                                    <input type="text" name="email" class="form-control " placeholder="ایمیل خود را وارد کنید">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleDropdownFormPassword1" class="form-label">گذرواژه</label>
+                                                    <input type="password" name="password" class="form-control" placeholder="رمز خود را وارد کنید">
+                                                </div>
+
+                                                <button type="submit" class="nav-link text-danger bg-warning border border-dark rounded" asp-controller="Home" asp-action="LogInUser">وارد شدن</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    }
+                                    @if( ViewBag.id!=0 ){
+                                       <form method="post" >
+                                          <button type="submit" class=" nav-link text-danger bg-warning border border-dark rounded btn btn-danger "asp-controller="Home" asp-action="LogOut">
+                                            خروج
+                                        </button>
+                                       </form>
+                                     
+                                    }
+                                   
+                                      </li>
+
+                               
+                                <li class="nav-item d-flex">
+                                    <a class="nav-link text-danger bg-warning border border-dark rounded" asp-area="" asp-controller="Home" asp-action="Index">صفحه اصلی</a>
+                                </li>
+
+
+
+
+                                <li class="nav-item d-flex">
+                                    
+                                        <a class="nav-link text-danger bg-warning border border-dark rounded" asp-area="" asp-controller="Home" asp-action="ProductsList">نمایش کالاها</a>
+                                   </li>
+                                <li class="nav-item d-flex">
+
+                                    <a class="nav-link text-danger bg-warning border border-dark rounded" asp-area="" asp-controller="Home" asp-action="BasketList">سبد خرید</a>
+                                   
+                                </li
+                                  <li class="nav-item d-flex">
+
+                                    <a class="nav-link text-danger bg-warning border border-dark rounded" asp-area="" asp-controller="Home" asp-action="FactorsList">فاکتورها</a>
+                                   
+                                </li>
+                              
+
+                            </ul>
+                        </div>
+
+
+                    </ul>
+                     @if( ViewBag.id!=0  ){
+                    <p class="text-danger bg-warning">
+                       کاربر با ایدی :
+                       @ViewBag.id
+                    </p>
+                     }
+                </div>
+            </nav>
+
+        </header>
+
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
+</header>
+</html>
+
+
+
+
